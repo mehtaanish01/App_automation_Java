@@ -6,9 +6,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 
 public class App_automation_ios {
-    public static final String userName = "<userName>";
-    public static final String accessKey = "<accessKey>";
-    public static final String URL = "https://" + userName + ":" + accessKey + "@beta-hub.lambdatest.com/wd/hub";
+   
+    public static final String URL = "https://" + userName + ":" + accessKey + "/wd/hub";
 
     public static void main(String[] args) throws Exception {
 
@@ -20,15 +19,14 @@ public class App_automation_ios {
             caps.setCapability("isRealMobile", true);
 
             //AppURL (Create from sample.ipa sample in project)
-            caps.setCapability("app", "lt://APP100201841648760951043756");
+            caps.setCapability("app", "");
 
             caps.setCapability("platformName", "iOS");
             caps.setCapability("name", "AppiOS");
-            caps.setCapability("devicelog", true);
-            caps.setCapability("network", true);
+            
 
 
-        IOSDriver driver = new IOSDriver(new URL("https://" + userName + ":" + accessKey + "@beta-hub.lambdatest.com/wd/hub"), caps);
+        IOSDriver driver = new IOSDriver(new URL("https://" + userName + ":" + accessKey + "/wd/hub"), caps);
 
 
             Thread.sleep(2000);
@@ -74,9 +72,9 @@ public class App_automation_ios {
 
             MobileElement el4 = (MobileElement) driver.findElementByAccessibilityId("Search");
             el4.click();
-            el4.sendKeys("Lambdatest");
+            el4.sendKeys("");
 
-            //((JavascriptExecutor) driver).executeScript("lambda-status=passed");
+           
             driver.quit();
 
         } catch (Exception t) {
@@ -85,4 +83,5 @@ public class App_automation_ios {
        }
     }
 }
+
 
