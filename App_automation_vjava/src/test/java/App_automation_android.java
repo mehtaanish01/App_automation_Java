@@ -8,22 +8,21 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 public class App_automation_android {
-    public static String userName = "<userName>";
-    public static String accessKey = "<accessKey>";
+  
     private static RemoteWebDriver driver;
 
     public static void main(String args[]) throws MalformedURLException, InterruptedException {
 
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("build", "Proverbial Android");
+            capabilities.setCapability("build", "sample Android");
             capabilities.setCapability("deviceName", "Galaxy S21");
             capabilities.setCapability("platformVersion", "11");
             capabilities.setCapability("platformName", "Android");
             capabilities.setCapability("isRealMobile", true);
 
             //AppURL (Create from sample.apk sample in project)
-            capabilities.setCapability("app", "lt://APP100201841649279030516217"); //Enter your app url
+            capabilities.setCapability("app", ""); //Enter your app url
             capabilities.setCapability("deviceOrientation", "PORTRAIT");
             capabilities.setCapability("console", true);
             capabilities.setCapability("network", false);
@@ -31,29 +30,29 @@ public class App_automation_android {
             capabilities.setCapability("devicelog", true);
 
 
-            AppiumDriver driver = new AppiumDriver(new URL("https://" +userName + ":" + accessKey + "@beta-hub.lambdatest.com/wd/hub"), capabilities);
+            AppiumDriver driver = new AppiumDriver(new URL("https://" +userName + ":" + accessKey + "/wd/hub"), capabilities);
 
 
-            MobileElement color = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/color"));
+            MobileElement color = (MobileElement) driver.findElement(MobileBy.id(""));
             //Changes color
             color.click();
             //Back to black color
             color.click();
 
-            MobileElement text = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/Text"));
+            MobileElement text = (MobileElement) driver.findElement(MobileBy.id(""));
             //Changes the text to proverbial
             text.click();
 
             //toast is visible
-            MobileElement toast = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/toast"));
+            MobileElement toast = (MobileElement) driver.findElement(MobileBy.id(""));
             toast.click();
 
             //notification is visible
-            MobileElement notification = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/notification"));
+            MobileElement notification = (MobileElement) driver.findElement(MobileBy.id(""));
             notification.click();
 
             //Open the geolocation page
-            MobileElement geo = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/geoLocation"));
+            MobileElement geo = (MobileElement) driver.findElement(MobileBy.id(""));
             geo.click();
             Thread.sleep(5000);
 
@@ -63,7 +62,7 @@ public class App_automation_android {
             Thread.sleep(5000);
 
             //Takes to speed test page
-            MobileElement speedtest = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/speedTest"));
+            MobileElement speedtest = (MobileElement) driver.findElement(MobileBy.id(""));
             speedtest.click();
             Thread.sleep(5000);
             driver.navigate().back();
@@ -71,9 +70,9 @@ public class App_automation_android {
             //Opens the browser
             MobileElement browser = (MobileElement) driver.findElement(MobileBy.AccessibilityId("Browser"));
             browser.click();
-            MobileElement el13 = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/url"));
+            MobileElement el13 = (MobileElement) driver.findElement(MobileBy.id(""));
             el13.sendKeys("https://www.lambdatest.com");
-            MobileElement el14 = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/find"));
+            MobileElement el14 = (MobileElement) driver.findElement(MobileBy.id(""));
             el14.click();
             driver.quit();
 
@@ -81,10 +80,11 @@ public class App_automation_android {
             el2.click();
 
         } catch (AssertionError a) {
-            ((JavascriptExecutor) driver).executeScript("lambda-status=failed");
+            
             a.printStackTrace();
         }
 // The driver.quit statement is required, otherwise the test continues to execute, leading to a timeout.
         driver.quit();
     }
     }
+
